@@ -1,4 +1,3 @@
-dfgh
 //https://www.cplusplus.com/reference/cstring/
 #include <stdio.h>
 #include <iostream>
@@ -203,7 +202,6 @@ void inputscuderia(Pilota v[], Scuderia k[])
 	    switch(x)
 	    {
 	     	case 0:
-	     		v[j].squadra = *k[0];
 	     		break;
 	     	case 1:
 	     		break;
