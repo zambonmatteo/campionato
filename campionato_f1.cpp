@@ -9,6 +9,7 @@ typedef struct{
 	char nome[20];
 	int puntiTOT;
 	int annofondazione;
+	int numeropiloti;
 }Scuderia;
 
 typedef struct{
@@ -102,6 +103,7 @@ void inputscuderia(Scuderia v[])
 		inseriscinomescuderia(v[i].nome,v,i);
 		v[i].annofondazione = inseriscianno();	
 		v[i].puntiTOT=0;
+		v[i].numeropiloti=0;
 	}
 }
 /////////////funzioni solo pilota
