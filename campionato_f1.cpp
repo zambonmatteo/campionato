@@ -65,8 +65,8 @@ void inseriscinomescuderia(char a[],Scuderia tutti[],int pos)
 	passaggio(temp, a);
 	for(int j=0;j<20;j++)
 	{			
-		 while(confronta(a,tutti[j].nome)==0&&pos!=j)
-		 {
+		while(confronta(a,tutti[j].nome)==0&&pos!=j)
+		{
 		 	cout <<"Nome scuderia inserito gia' presente, reinseriscilo: ";
 		 	cin >>temp;
 		 	while(lunghezza(temp)>=60)
@@ -233,8 +233,10 @@ int main()
 	Pilota pilota[20];
 	//input scuderia
 	inputscuderia(squadre);
+	system("cls");
 	//input pilota
 	inputpilota(pilota);
+	system("cls");
 	//destinare il pilota alla scuderia
 	inputscuderia(pilota, squadre);
 	//array dinamico delle gare
