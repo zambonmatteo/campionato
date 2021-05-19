@@ -85,6 +85,7 @@ int inseriscianno()
 	int j;
 	cout <<"Inserisci l'anno di formazione della scuderia: ";
 	cin >>j;
+	
 	while(j<1900||j>2021)
 	{
 		cout <<"Anno nascita scuderia non valido; reinscerisci l'anno di creazione della scuderia: ";
