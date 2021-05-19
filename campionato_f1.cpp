@@ -201,6 +201,7 @@ void inputscuderia(Pilota v[], Scuderia k[])
 	    while(x<0||x>9)
 	    {
 	    	cout<<"Scuderia insesistente, reinserisci scuderia: ";
+	    	cin >>x;
 		}
 	    switch(x)
 	    {
