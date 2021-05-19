@@ -205,24 +205,94 @@ void inputscuderia(Pilota v[], Scuderia k[])
 	    switch(x)
 	    {
 	     	case 0:
+	     		if(k[x].numeropiloti<2)
+	     		{
+	     			k[x].numeropiloti++;
+				}else{
+					cout<<"Scuderia con già due piloti;";
+					j--;
+				}
 	     		break;
 	     	case 1:
+	     		if(k[x].numeropiloti<2)
+	     		{
+	     			k[x].numeropiloti++;
+				}else{
+					cout<<"Scuderia con già due piloti;";
+					j--;
+				}
 	     		break;
 	     	case 2:
+	     		if(k[x].numeropiloti<2)
+	     		{
+	     			k[x].numeropiloti++;
+				}else{
+					cout<<"Scuderia con già due piloti;";
+					j--;
+				}
 	     		break;
 	     	case 3:
+	     		if(k[x].numeropiloti<2)
+	     		{
+	     			k[x].numeropiloti++;
+				}else{
+					cout<<"Scuderia con già due piloti;";
+					j--;
+				}
 	     		break;
 	    	case 4:
+	    		if(k[x].numeropiloti<2)
+	     		{
+	     			k[x].numeropiloti++;
+				}else{
+					cout<<"Scuderia con già due piloti;";
+					j--;
+				}
 	     		break;
 	     	case 5:
+	     		if(k[x].numeropiloti<2)
+	     		{
+	     			k[x].numeropiloti++;
+				}else{
+					cout<<"Scuderia con già due piloti;";
+					j--;
+				}
 	     		break;
 	     	case 6:
+	     		if(k[x].numeropiloti<2)
+	     		{
+	     			k[x].numeropiloti++;
+				}else{
+					cout<<"Scuderia con già due piloti;";
+					j--;
+				}
 	     		break;
 	     	case 7:
+	     		if(k[x].numeropiloti<2)
+	     		{
+	     			k[x].numeropiloti++;
+				}else{
+					cout<<"Scuderia con già due piloti;";
+					j--;
+				}
 	     		break;
 	     	case 8:
+	     		if(k[x].numeropiloti<2)
+	     		{
+	     			k[x].numeropiloti++;
+				}else{
+					cout<<"Scuderia con già due piloti;";
+					j--;
+				}
 	     		break;
 	     	case 9:
+	     		if(k[x].numeropiloti<2)
+	     		{
+	     			k[x].numeropiloti++;
+				}else{
+					cout<<"Scuderia con già due piloti;";
+					j--;
+				}
 	     		break;
 		}
 		system("cls");
@@ -243,6 +313,5 @@ int main()
 	//destinare il pilota alla scuderia
 	inputscuderia(pilota, squadre);
 	//array dinamico delle gare
-	
 	//una volta finite le gare si chiede cosa si vuole vedere
 }
