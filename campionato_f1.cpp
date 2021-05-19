@@ -208,7 +208,7 @@ void inputscuderia(Pilota v[], Scuderia k[])
 	     		{
 	     			k[x].numeropiloti++;
 				}else{
-					cout<<"Scuderia con già due piloti;";
+					cout<<"Scuderia con gia' due piloti;";
 					j--;
 				}
 	     		break;
@@ -217,7 +217,7 @@ void inputscuderia(Pilota v[], Scuderia k[])
 	     		{
 	     			k[x].numeropiloti++;
 				}else{
-					cout<<"Scuderia con già due piloti;";
+					cout<<"Scuderia con gia' due piloti;";
 					j--;
 				}
 	     		break;
@@ -226,7 +226,7 @@ void inputscuderia(Pilota v[], Scuderia k[])
 	     		{
 	     			k[x].numeropiloti++;
 				}else{
-					cout<<"Scuderia con già due piloti;";
+					cout<<"Scuderia con gia' due piloti;";
 					j--;
 				}
 	     		break;
@@ -235,7 +235,7 @@ void inputscuderia(Pilota v[], Scuderia k[])
 	     		{
 	     			k[x].numeropiloti++;
 				}else{
-					cout<<"Scuderia con già due piloti;";
+					cout<<"Scuderia con gia' due piloti;";
 					j--;
 				}
 	     		break;
@@ -244,7 +244,7 @@ void inputscuderia(Pilota v[], Scuderia k[])
 	     		{
 	     			k[x].numeropiloti++;
 				}else{
-					cout<<"Scuderia con già due piloti;";
+					cout<<"Scuderia con gia' due piloti;";
 					j--;
 				}
 	     		break;
@@ -253,7 +253,7 @@ void inputscuderia(Pilota v[], Scuderia k[])
 	     		{
 	     			k[x].numeropiloti++;
 				}else{
-					cout<<"Scuderia con già due piloti;";
+					cout<<"Scuderia con gia' due piloti;";
 					j--;
 				}
 	     		break;
@@ -262,7 +262,7 @@ void inputscuderia(Pilota v[], Scuderia k[])
 	     		{
 	     			k[x].numeropiloti++;
 				}else{
-					cout<<"Scuderia con già due piloti;";
+					cout<<"Scuderia con gia' due piloti;";
 					j--;
 				}
 	     		break;
@@ -271,7 +271,7 @@ void inputscuderia(Pilota v[], Scuderia k[])
 	     		{
 	     			k[x].numeropiloti++;
 				}else{
-					cout<<"Scuderia con già due piloti;";
+					cout<<"Scuderia con gia' due piloti;";
 					j--;
 				}
 	     		break;
@@ -280,7 +280,7 @@ void inputscuderia(Pilota v[], Scuderia k[])
 	     		{
 	     			k[x].numeropiloti++;
 				}else{
-					cout<<"Scuderia con già due piloti;";
+					cout<<"Scuderia con gia' due piloti;";
 					j--;
 				}
 	     		break;
@@ -289,7 +289,7 @@ void inputscuderia(Pilota v[], Scuderia k[])
 	     		{
 	     			k[x].numeropiloti++;
 				}else{
-					cout<<"Scuderia con già due piloti;";
+					cout<<"Scuderia con gia' due piloti;";
 					j--;
 				}
 	     		break;
