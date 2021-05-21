@@ -242,7 +242,7 @@ void inputgare(Gara gare[])
 	for(int j=1;i<10;i++,j++)
 	{
 		cout <<"\n Gara numero "<<j<<"\n";
-		inseriscinomegare(gare[i].nome,gare,i);
+		//inseriscinomegare(gare[i].nome,gare,i);
 	
 	}
 	
@@ -262,10 +262,6 @@ int main()
 	//destinare il pilota alla scuderia
 	inputscuderia(pilota, squadre);
 	//array dinamico delle gare, assegnazione punti casuali
-<<<<<<< HEAD
-	inputgare(gare);
-=======
->>>>>>> db050769ed7daed507472fcf6b38ff0b0a4a2674
-	
+	inputgare(gare);	
 	//una volta finite le gare si chiede cosa si vuole vedere
 }
