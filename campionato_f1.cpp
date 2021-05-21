@@ -215,11 +215,29 @@ void inputscuderia(Pilota v[], Scuderia k[])
 	}
 }
 
+void inseriscinomegare()
+{
+	
+}
+void inputgare(Gara gare[])
+{
+
+		int i=0;
+	cout <<"----- Inserimento Gare ----\n";
+	for(int j=1;i<10;i++,j++)
+	{
+		cout <<"\n Gara numero "<<j<<"\n";
+		inseriscinomegare(gare[i].nome,gare,i);
+	
+	}
+	
+}
 int main()
 {
-	int i;
+	int i,cap;
 	Scuderia squadre[10];
 	Pilota pilota[20];
+	Gara *gare= (Gara*) malloc(cap*sizeof(Gara));
 	//input scuderia
 	inputscuderia(squadre);
 	system("cls");
@@ -229,5 +247,7 @@ int main()
 	//destinare il pilota alla scuderia
 	inputscuderia(pilota, squadre);
 	//array dinamico delle gare, assegnazione punti casuali
+	inputgare(gare);
+	
 	//una volta finite le gare si chiede cosa si vuole vedere
 }
