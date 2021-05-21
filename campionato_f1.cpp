@@ -3,6 +3,7 @@
 #include <iostream>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 using namespace std;
 
 typedef struct{
@@ -26,6 +27,19 @@ typedef struct{
 	Pilota* terzo;
 }Gara;
 ////////////funzioni generali
+void preparaGeneratore()
+{
+	srand(time(0));
+}
+
+int sorteggiaNumero(int min, int max)
+{
+	int width = max;
+	int ris = rand() % width;	
+	ris += min;
+	return ris;
+}
+
 int lunghezza(char a[])
 {
 	int i=0;
