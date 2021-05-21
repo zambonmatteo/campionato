@@ -214,6 +214,7 @@ void inputscuderia(Pilota v[], Scuderia k[])
 		}
 	}
 }
+///////input gare
 
 int main()
 {
@@ -229,5 +230,6 @@ int main()
 	//destinare il pilota alla scuderia
 	inputscuderia(pilota, squadre);
 	//array dinamico delle gare, assegnazione punti casuali
+	
 	//una volta finite le gare si chiede cosa si vuole vedere
 }
