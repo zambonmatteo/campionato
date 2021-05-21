@@ -3,6 +3,7 @@
 #include <iostream>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 using namespace std;
 
 typedef struct{
@@ -26,6 +27,19 @@ typedef struct{
 	Pilota* terzo;
 }Gara;
 ////////////funzioni generali
+void preparaGeneratore()
+{
+	srand(time(0));
+}
+
+int sorteggiaNumero(int min, int max)
+{
+	int width = max;
+	int ris = rand() % width;	
+	ris += min;
+	return ris;
+}
+
 int lunghezza(char a[])
 {
 	int i=0;
@@ -214,6 +228,7 @@ void inputscuderia(Pilota v[], Scuderia k[])
 		}
 	}
 }
+///////input gare
 
 void inseriscinomegare()
 {
@@ -247,7 +262,10 @@ int main()
 	//destinare il pilota alla scuderia
 	inputscuderia(pilota, squadre);
 	//array dinamico delle gare, assegnazione punti casuali
+<<<<<<< HEAD
 	inputgare(gare);
+=======
+>>>>>>> db050769ed7daed507472fcf6b38ff0b0a4a2674
 	
 	//una volta finite le gare si chiede cosa si vuole vedere
 }
