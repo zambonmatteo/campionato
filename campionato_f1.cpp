@@ -203,108 +203,14 @@ void inputscuderia(Pilota v[], Scuderia k[])
 	    	cout<<"Scuderia insesistente, reinserisci scuderia: ";
 	    	cin >>x;
 		}
-	    switch(x)
+	    if(k[x].numeropiloti<2)
 	    {
-	     	case 0:
-	     		if(k[x].numeropiloti<2)
-	     		{
-	     			k[x].numeropiloti++;
-	     			system("cls");
-				}else{
-					cout<<"Scuderia con gia' due piloti;";
-					j--;
-				}
-	     		break;
-	     	case 1:
-	     		if(k[x].numeropiloti<2)
-	     		{
-	     			k[x].numeropiloti++;
-	     			system("cls");
-				}else{
-					cout<<"Scuderia con gia' due piloti;";
-					j--;
-				}
-	     		break;
-	     	case 2:
-	     		if(k[x].numeropiloti<2)
-	     		{
-	     			k[x].numeropiloti++;
-	     			system("cls");
-				}else{
-					cout<<"Scuderia con gia' due piloti;";
-					j--;
-				}
-	     		break;
-	     	case 3:
-	     		if(k[x].numeropiloti<2)
-	     		{
-	     			k[x].numeropiloti++;
-	     			system("cls");
-				}else{
-					cout<<"Scuderia con gia' due piloti;";
-					j--;
-				}
-	     		break;
-	    	case 4:
-	    		if(k[x].numeropiloti<2)
-	     		{
-	     			k[x].numeropiloti++;
-	     			system("cls");
-				}else{
-					cout<<"Scuderia con gia' due piloti;";
-					j--;
-				}
-	     		break;
-	     	case 5:
-	     		if(k[x].numeropiloti<2)
-	     		{
-	     			k[x].numeropiloti++;
-	     			system("cls");
-				}else{
-					cout<<"Scuderia con gia' due piloti;";
-					j--;
-				}
-	     		break;
-	     	case 6:
-	     		if(k[x].numeropiloti<2)
-	     		{
-	     			k[x].numeropiloti++;
-	     			system("cls");
-				}else{
-					cout<<"Scuderia con gia' due piloti;";
-					j--;
-				}
-	     		break;
-	     	case 7:
-	     		if(k[x].numeropiloti<2)
-	     		{
-	     			k[x].numeropiloti++;
-	     			system("cls");
-				}else{
-					cout<<"Scuderia con gia' due piloti;";
-					j--;
-				}
-	     		break;
-	     	case 8:
-	     		if(k[x].numeropiloti<2)
-	     		{
-	     			k[x].numeropiloti++;
-	     			system("cls");
-				}else{
-					cout<<"Scuderia con gia' due piloti;";
-					j--;
-				}
-	     		break;
-	     	case 9:
-	     		if(k[x].numeropiloti<2)
-	     		{
-	     			k[x].numeropiloti++;
-	     			system("cls");
-				}else{
-					cout<<"Scuderia con gia' due piloti;";
-					j--;
-				}
-	     		break;
+	    	k[x].numeropiloti++;
+	     	v[j].squadra=k+x;
+	     	system("cls");
+		}else{
+			cout<<"Scuderia con gia' due piloti;\n";
+			j--;
 		}
 	}
 }
