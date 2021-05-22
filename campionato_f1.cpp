@@ -230,23 +230,75 @@ void inputscuderia(Pilota v[], Scuderia k[])
 }
 ///////input gare
 
-void inseriscinomegare()
+void inseriscinomegare(char a[],Gara gare[],int pos)
 {
+		char temp[500];
 	
+	cout <<"Inserisci il nome della gara : ";
+	cin >>temp;
+	while(lunghezza(temp)>=60)
+	{
+		cout <<"Nome gara non valido; reinserisci il nome della gara: ";
+		cin >>temp;
+	}
+	passaggio(temp, a);
+	for(int j=0;j<20;j++)
+	{			
+		while(confronta(a,gare[j].nome)==0&&pos!=j)
+		{
+		 	cout <<"Nome gara inserito gia' presente, reinseriscilo: ";
+		 	cin >>temp;
+		 	while(lunghezza(temp)>=60)
+			{
+				cout <<"Nome gara non valido; reinserisci il nome della gara: ";
+				cin >>temp;
+			}
+			passaggio(temp, a);
+		}
+	}
+}
+void ridimensioneArrayGare(Gara gare[],int &cap,int &nArr)
+{
+
+if(nArr==cap)
+			{
+				Gara *temp=(Gara*) malloc(cap*2*sizeof(Gara));
+				
+				for(int j=0;j<nArr;j++)
+				{
+				temp[j]=gare[j];
+					
+				}
+				
+				cap=cap*2;
+				//printf(" \n cap = %d",cap);
+			free(gare);
+			gare=temp;
+			
+			}
+		nArr++;		
 }
 void inputgare(Gara gare[])
 {
 
-		int i=0;
+		int i=0,x,cap=1,nArr=0,j=0;
 	cout <<"----- Inserimento Gare ----\n";
-	for(int j=1;i<10;i++,j++)
-	{
+ do{
+ 
 		cout <<"\n Gara numero "<<j<<"\n";
-		//inseriscinomegare(gare[i].nome,gare,i);
+		inseriscinomegare(gare[i].nome,gare,i);
+		
 	
-	}
+	ridimensioneArrayGare(gare,cap,nArr);
+	i++;
+	j++;
+	cout<<"\n per uscire inserisci 0 :";
+	cin>>x;
+	}while(x!=0);
 	
 }
+
+///////////////////////////////////////////////////main
 int main()
 {
 	int i,cap;
@@ -254,13 +306,13 @@ int main()
 	Pilota pilota[20];
 	Gara *gare= (Gara*) malloc(cap*sizeof(Gara));
 	//input scuderia
-	inputscuderia(squadre);
+	//inputscuderia(squadre);
 	system("cls");
 	//input pilota
-	inputpilota(pilota);
+    //inputpilota(pilota);
 	system("cls");
 	//destinare il pilota alla scuderia
-	inputscuderia(pilota, squadre);
+	//inputscuderia(pilota, squadre);
 	//array dinamico delle gare, assegnazione punti casuali
 	inputgare(gare);	
 	//una volta finite le gare si chiede cosa si vuole vedere
