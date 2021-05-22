@@ -234,11 +234,11 @@ void inputscuderia(Pilota v[], Scuderia k[])
 
 void inseriscinomegare(char a[],Gara gare[],int pos)
 {
-		char temp[500];
+	char temp[500];
 	
 	cout <<"Inserisci il nome della gara : ";
 	cin >>temp;
-	while(lunghezza(temp)>=60)
+	while(lunghezza(temp)>=sizenome)
 	{
 		cout <<"Nome gara non valido; reinserisci il nome della gara: ";
 		cin >>temp;
@@ -250,7 +250,7 @@ void inseriscinomegare(char a[],Gara gare[],int pos)
 		{
 		 	cout <<"Nome gara inserito gia' presente, reinseriscilo: ";
 		 	cin >>temp;
-		 	while(lunghezza(temp)>=60)
+		 	while(lunghezza(temp)>=sizenome)
 			{
 				cout <<"Nome gara non valido; reinserisci il nome della gara: ";
 				cin >>temp;
@@ -259,54 +259,49 @@ void inseriscinomegare(char a[],Gara gare[],int pos)
 		}
 	}
 }
+
 void ridimensioneArrayGare(Gara gare[],int &cap,int &nArr)
 {
-
-if(nArr==cap)
-			{
-				Gara *temp=(Gara*) malloc(cap*2*sizeof(Gara));
-				
-				for(int j=0;j<nArr;j++)
-				{
-				temp[j]=gare[j];
-					
-				}
-				
-				cap=cap*2;
-				//printf(" \n cap = %d",cap);
+	if(nArr==cap)
+	{
+		Gara *temp=(Gara*) malloc(cap*2*sizeof(Gara));
+		for(int j=0;j<nArr;j++)
+		{
+			temp[j]=gare[j];	
+		}
+			cap=cap*2;
 			free(gare);
 			gare=temp;
-			
-			}
-		nArr++;		
+			free(temp);
+			cout<<cap;
+	}
+	nArr++;		
 }
+
 void inputgare(Gara gare[])
 {
-
-		int i=0,x,cap=1,nArr=0,j=0;
-	cout <<"----- Inserimento Gare ----\n";
- do{
- 
-		cout <<"\n Gara numero "<<j<<"\n";
+	int i=0,x,cap=1,nArr=0,j=0;
+ 	do{
+ 		system("cls");
+ 		cout <<"----- Inserimento Gare ----\n";
+		cout <<"Gara numero "<<j<<"\n";
+		ridimensioneArrayGare(gare,cap,nArr);
 		inseriscinomegare(gare[i].nome,gare,i);
-		
-	
-	ridimensioneArrayGare(gare,cap,nArr);
-	i++;
-	j++;
-	cout<<"\n per uscire inserisci 0 :";
-	cin>>x;
-	}while(x!=0);
+		i++;	
+		j++;
+		cout<<"Vuoi inserire un'altra gara?\n0 o piu' per inserirla': ";
+		cin>>x;
+	}while(x>=0);
 	
 }
 
 ///////////////////////////////////////////////////main
 int main()
 {
-	int i,cap;
+	int i;
 	Scuderia squadre[10];
 	Pilota pilota[20];
-	Gara *gare= (Gara*) malloc(cap*sizeof(Gara));
+	Gara *gare= (Gara*) malloc(sizeof(Gara));
 	//input scuderia
 	//inputscuderia(squadre);
 	system("cls");
