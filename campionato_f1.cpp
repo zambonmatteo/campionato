@@ -243,6 +243,7 @@ void inseriscinomegare(char a[],Gara gare[],int pos)
 		cout <<"Nome gara non valido; reinserisci il nome della gara: ";
 		cin >>temp;
 	}
+	cout<<"\n sei arrivato qui";
 	passaggio(temp, a);
 	for(int j=0;j<20;j++)
 	{			
