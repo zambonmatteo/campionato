@@ -6,22 +6,24 @@
 #include <time.h>
 using namespace std;
 
+const int sizenome=30; //nome di tutto: scuderia, gara e piloti(nome e cognome)
+
 typedef struct{
-	char nome[20];
+	char nome[sizenome];
 	int puntiTOT;
 	int annofondazione;
 	int numeropiloti;
 }Scuderia;
 
 typedef struct{
-	char nome[20];
-	char cognome[20];
+	char nome[sizenome];
+	char cognome[sizenome];
 	int punti;
 	Scuderia* squadra;
 }Pilota;
 
 typedef struct{
-	char nome[60];
+	char nome[sizenome];
 	Pilota* primo;
 	Pilota* secondo;
 	Pilota* terzo;
@@ -72,7 +74,7 @@ void inseriscinomescuderia(char a[],Scuderia tutti[],int pos)
 	
 	cout <<"Inserisci il nome della scuderia: ";
 	cin >>temp;
-	while(lunghezza(temp)>=60)
+	while(lunghezza(temp)>=sizenome)
 	{
 		cout <<"Nome scuderia non valido; reinserisci il nome della scuderia: ";
 		cin >>temp;
@@ -84,7 +86,7 @@ void inseriscinomescuderia(char a[],Scuderia tutti[],int pos)
 		{
 		 	cout <<"Nome scuderia inserito gia' presente, reinseriscilo: ";
 		 	cin >>temp;
-		 	while(lunghezza(temp)>=60)
+		 	while(lunghezza(temp)>=sizenome)
 			{
 				cout <<"Nome scuderia non valido; reinserisci il nome della scuderia: ";
 				cin >>temp;
@@ -130,7 +132,7 @@ void inputpilota(Pilota v[])
 	{
 		cout<<" \n Insersci il pilota "<<contatore<<" :\n NOME = ";
 		cin>>temp;
-		while(lunghezza(temp)>20)
+		while(lunghezza(temp)>sizenome)
 		{
 			cout<<"\n hai inserito un nome troppo lungo, reinserisci  :";
 			cin>>temp;
@@ -147,7 +149,7 @@ void inputpilota(Pilota v[])
 			 	{
 			 		cout <<"Inserisci il nome del pilota: ";
 			 		cin>>temp;
-					while(lunghezza(temp)>20)
+					while(lunghezza(temp)>sizenome)
 					{
 						cout<<"\n hai inserito un nome troppo lungo, reinserisci  :";
 						cin>>temp;
@@ -160,7 +162,7 @@ void inputpilota(Pilota v[])
 		}
 		cout<<"\n COGNOME =";
 		cin>>temp;
-		while(lunghezza(temp)>20)
+		while(lunghezza(temp)>sizenome)
 		{
 			cout<<"\n hai inserito un cognome troppo lungo, reinserisci  :";
 			cin>>temp;
@@ -177,7 +179,7 @@ void inputpilota(Pilota v[])
 			 	{
 			 		cout <<"Inserisci il cognome del pilota: ";
 			 		cin>>temp;
-					while(lunghezza(temp)>20)
+					while(lunghezza(temp)>sizenome)
 					{
 						cout<<"\n hai inserito un cognome troppo lungo, reinserisci:";
 						cin>>temp;
