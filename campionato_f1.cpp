@@ -7,6 +7,7 @@
 using namespace std;
 
 const int sizenome=30; //nome di tutto: scuderia, gara e piloti(nome e cognome)
+const int SIZEpiloti=19;
 
 typedef struct{
 	char nome[sizenome];
@@ -328,7 +329,62 @@ void inputgare(Gara gare[], Pilota a[])
 	}while(x>=0);
 }
 
-///////////////////////////////////////////////////main
+/////funzioni del menu output
+void menu()
+{
+cout<<" \n ======================MENU====================";
+cout<<"\n\n 0. inserisci 0 per finire il programma. ";
+cout<<"\n  1. vincitore dei piloti ";	
+cout<<"\n  2. classifica dei piloti ";	
+cout<<"\n  3. vincitori dei costruttori ";
+cout<<"\n  4. classifica dei costruttori ";
+
+}
+ void classificapiloti(Pilota v[])
+ {
+   Piloti PuntArray[SIZEpiloti];
+   
+   for(int i=0;i<SIZEpiloti;i++) 
+   {
+   	
+   	
+   }
+ }
+void controlloX(int x)
+{
+	while(x<0||x>4)
+	{
+    cout<<"\n ERRORE! reinserisci un numero del menu : ";
+	cin>>x;	
+	}
+	return x;
+}
+
+void menuinterattivo()
+{
+	int x;
+	do{
+	
+	menu();
+	cout<<"\n inserisci un numero del menu : ";
+	cin>>x;
+	x=controlloX(x);
+	switch(x)
+	{
+		case 0:     break;
+		case 1:     break;
+		case 2:  classificapiloti();   break;
+		case 3:     break;
+		case 4:     break;
+						
+	}
+	
+	
+}while(x!=0);
+
+}
+/////////////////////////////////////////////////main
+
 int main()
 {
 	int i;
@@ -346,4 +402,12 @@ int main()
 	//array dinamico delle gare, assegnazione punti casuali
 	inputgare(gare, pilota);
 	//una volta finite le gare si chiede cosa si vuole vedere
+	// MENU 0. finire programma 1.vedere quale pilota ha vinto 2. classifica intera piloti 
+	//3. primo classificato tra i costruttori. 4. classifica totale costruttori
+	
+	
+	
+	
+	
+	
 }
