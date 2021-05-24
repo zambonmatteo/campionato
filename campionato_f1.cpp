@@ -24,11 +24,20 @@ typedef struct{
 
 typedef struct{
 	char nome[sizenome];
-	Pilota* primo;
+	Pilota* vincitore;
 	Pilota* secondo;
 	Pilota* terzo;
 }Gara;
 ////////////funzioni generali
+void menupiloti(Pilota temp[])
+{
+	cout <<"- PILOTI -\n";
+	for(int j=0;j<20;j++)
+	{
+		cout<<j<<"- "<<temp[j].nome<<" "<<temp[j].cognome <<"\n";
+	}		
+}
+
 void preparaGeneratore()
 {
 	srand(time(0));
@@ -278,7 +287,19 @@ void ridimensioneArrayGare(Gara gare[],int &cap,int &nArr)
 	nArr++;		
 }
 
-void inputgare(Gara gare[])
+void insvincitori(Pilota arrayp[], Gara &race)
+{
+	int x=sorteggiaNumero(0,19);
+	arrayp[x].punti +=15;
+	arrayp[x].squadra->puntiTOT +=15;
+	race.vincitore = &arrayp[x];
+	while(x==sorteggiaNumero(0,19))
+	{
+		x=sorteggiaNumero(0,19);
+	}
+}
+
+void inputgare(Gara gare[], Pilota a[])
 {
 	int i=0,x,cap=1,nArr=0,j=0;
  	do{
@@ -287,12 +308,12 @@ void inputgare(Gara gare[])
 		cout <<"Gara numero "<<j<<"\n";
 		ridimensioneArrayGare(gare,cap,nArr);
 		inseriscinomegare(gare[i].nome,gare,i);
+		insvincitori(a, gare[i]);
 		i++;	
 		j++;
 		cout<<"Vuoi inserire un'altra gara? \n0 o piu' per inserirla': ";
 		cin>>x;
 	}while(x>=0);
-	
 }
 
 ///////////////////////////////////////////////////main
@@ -311,6 +332,6 @@ int main()
 	//destinare il pilota alla scuderia
 	//inputscuderia(pilota, squadre);
 	//array dinamico delle gare, assegnazione punti casuali
-	inputgare(gare);	
+	inputgare(gare, pilota);
 	//una volta finite le gare si chiede cosa si vuole vedere
 }
