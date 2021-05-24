@@ -316,8 +316,35 @@ void inputgare(Gara gare[], Pilota a[])
 		cin>>x;
 	}while(x>=0);
 }
+/*void bubbleSort(int A[], int nA)
+{
+	bool scambiato= true;
+//	int nc = 1;
+	for(int j = 0; j < nA-1 && scambiato; j++)
+	{
+		scambiato = false;		//NON HO ANCORA SCAMBIATO NIENTE
+		for(int i = nA-1; i>j; i--)
+		{
+//			printf("\n%d - ",nc);
+//			stampa(A,nA);
+			if(A[i] < A[i-1])
+			{				
+				int t = A[i];
+				A[i] = A[i-1];
+				A[i-1] = t;
+//				printf(" * ");
+				scambiato = true; //HO SCAMBIATO QUALCOSA
+			}
+//			nc++;
+		}
+		//se scambiato == false la passata è stata l'ultima che aveva senso fare
+//		printf("\n****** FINE PASSATA %d *******", j+1);
+	}
+}
+*/
 
 /////funzioni del menu output
+
 void menu()
 {
 cout<<" \n ======================MENU====================";
@@ -328,17 +355,24 @@ cout<<"\n  3. vincitori dei costruttori ";
 cout<<"\n  4. classifica dei costruttori ";
 
 }
- void classificapiloti(Pilota v[])
+ /*void classificapiloti(Pilota v[])
  {
-   Piloti PuntArray[SIZEpiloti];
+   Pilota PuntArray[SIZEpiloti];
    
    for(int i=0;i<SIZEpiloti;i++) 
    {
    	
-   	
+   	for(int j=SIZEpiloti-1;j>i;j--)
+   	{
+   		
+   		if(v[j].punti<v[j-1].punti)
+   		{
+   			
+		   }
+	   }
    }
- }
-void controlloX(int x)
+ }*/
+int controlloX(int x)
 {
 	while(x<0||x>4)
 	{
@@ -348,7 +382,7 @@ void controlloX(int x)
 	return x;
 }
 
-void menuinterattivo()
+void menuinterattivo(Pilota v[])
 {
 	int x;
 	do{
@@ -361,7 +395,7 @@ void menuinterattivo()
 	{
 		case 0:     break;
 		case 1:     break;
-		case 2:  classificapiloti();   break;
+		case 2:  classificapiloti(v);   break;
 		case 3:     break;
 		case 4:     break;
 						
