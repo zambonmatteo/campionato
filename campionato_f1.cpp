@@ -290,13 +290,25 @@ void ridimensioneArrayGare(Gara gare[],int &cap,int &nArr)
 void insvincitori(Pilota arrayp[], Gara &race)
 {
 	int x=sorteggiaNumero(0,19);
+	int y=sorteggiaNumero(0,19);
+	int z=sorteggiaNumero(0,19);
+	while(y==x)
+	{
+		y=sorteggiaNumero(0,19);	
+	}
+	while(z==x||z==y)
+	{
+		y=sorteggiaNumero(0,19);	
+	}
 	arrayp[x].punti +=15;
 	arrayp[x].squadra->puntiTOT +=15;
 	race.vincitore = &arrayp[x];
-	while(x==sorteggiaNumero(0,19))
-	{
-		x=sorteggiaNumero(0,19);
-	}
+	arrayp[x].punti +=10;
+	arrayp[x].squadra->puntiTOT +=10;
+	race.vincitore = &arrayp[y];
+	arrayp[x].punti +=5;
+	arrayp[x].squadra->puntiTOT +=5;
+	race.vincitore = &arrayp[z];
 }
 
 void inputgare(Gara gare[], Pilota a[])
