@@ -243,7 +243,7 @@ void inseriscinomegare(char a[],Gara gare[],int pos)
 		cout <<"Nome gara non valido; reinserisci il nome della gara: ";
 		cin >>temp;
 	}
-	cout<<"\n sei arrivato qui";
+
 	passaggio(temp, a);
 	for(int j=0;j<20;j++)
 	{			
@@ -274,7 +274,6 @@ void ridimensioneArrayGare(Gara gare[],int &cap,int &nArr)
 			free(gare);
 			gare=temp;
 			free(temp);
-			cout<<cap;
 	}
 	nArr++;		
 }
@@ -290,7 +289,7 @@ void inputgare(Gara gare[])
 		inseriscinomegare(gare[i].nome,gare,i);
 		i++;	
 		j++;
-		cout<<"Vuoi inserire un'altra gara?\n0 o piu' per inserirla': ";
+		cout<<"Vuoi inserire un'altra gara? \n0 o piu' per inserirla': ";
 		cin>>x;
 	}while(x>=0);
 	
