@@ -4,10 +4,13 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#include <unistd.h>
 using namespace std;
+unsigned int sleep(unsigned int seconds);
 
 const int sizenome=30; //nome di tutto: scuderia, gara e piloti(nome e cognome)
-const int SIZEpiloti=19;
+const int SIZEpiloti=20;
+const int SIZEscuderie=10;
 
 typedef struct{
 	char nome[sizenome];
@@ -30,6 +33,24 @@ typedef struct{
 	Pilota* terzo;
 }Gara;
 ////////////funzioni generali
+void coppa()
+{
+	system("color 0E");
+	cout <<"                ************\n";
+	cout <<"            ********************\n";
+	cout <<"        ****    ************    ****\n";
+	cout <<"    ****        ************        ****\n";
+	cout <<"        ****    ************    ****\n";
+	cout <<"            ********************\n";
+	cout <<"                ************\n";
+	cout <<"                    ****\n";
+	cout <<"                    ****\n";
+	cout <<"                ************\n";
+	cout <<"            ********************";
+	sleep(2);
+	system("color 07");
+}
+
 void menupiloti(Pilota temp[])
 {
 	cout <<"- PILOTI -\n";
@@ -384,11 +405,14 @@ int controlloX(int x)
 	return x;
 }
 
-void menuinterattivo(Pilota v[])
+void menuinterattivo(Pilota v[], Scuderia s[])
 {
 	int x;
 	Pilota* classificapil[SIZEpiloti];
 	classificapiloti(v, classificapil);
+	Pilota* classificascu[SIZEscuderie];
+	classifiscuderie(s, classificascu);
+	
 	do{
 	
 	menu();
@@ -402,7 +426,8 @@ void menuinterattivo(Pilota v[])
 			break;
 		case 1:
 			system("cls");
-		cout <<"Il pilota vincitore della stagione e' "<< classificapil[0]->nome <<" "<<classificapil[0]->cognome <<" con "<<classificapil[0]->punti <<"punti." ;
+		cout <<"Il pilota vincitore della stagione e' "<< classificapil[0]->nome <<" "<<classificapil[0]->cognome <<" con "<<classificapil[0]->punti <<"punti.\n";
+		coppa();
 			break;
 		case 2:		break;
 		case 3:     break;
@@ -433,5 +458,5 @@ int main()
 	//array dinamico delle gare, assegnazione punti casuali
 	//inputgare(gare, pilota);
 	//una volta finite le gare si chiede cosa si vuole vedere
-
+	menuinterattivo(pilota, squadre);
 }
