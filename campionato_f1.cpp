@@ -327,12 +327,10 @@ void insvincitori(Pilota arrayp[], Gara &race)
 	arrayp[x].punti +=15;
 	arrayp[x].squadra->puntiTOT +=15;
 	race.vincitore = &arrayp[x];
-	arrayp[x].punti +=10;
-	arrayp[x].squadra->puntiTOT +=10;
-	race.vincitore = &arrayp[y];
-	arrayp[x].punti +=5;
-	arrayp[x].squadra->puntiTOT +=5;
-	race.vincitore = &arrayp[z];
+	arrayp[y].punti +=10;
+	arrayp[y].squadra->puntiTOT +=10;
+	arrayp[z].punti +=5;
+	arrayp[z].squadra->puntiTOT +=5;
 }
 
 void inputgare(Gara gare[], Pilota a[])
@@ -504,15 +502,17 @@ int main()
 	Gara *gare= (Gara*) malloc(sizeof(Gara));
 
 	//input scuderia
-inputscuderia(squadre);
+	inputscuderia(squadre);
 	system("cls");
 	//input pilota
-   inputpilota(pilota);
+    inputpilota(pilota);
 	system("cls");
 	//destinare il pilota alla scuderia
 	inputscuderia(pilota, squadre);
+	system("cls");
 	//array dinamico delle gare, assegnazione punti casuali
 	inputgare(gare, pilota);
+	system("cls");
 	//una volta finite le gare si chiede cosa si vuole vedere
 	menuinterattivo(pilota, squadre);
 }
