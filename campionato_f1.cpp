@@ -35,6 +35,9 @@ typedef struct{
 ////////////funzioni generali
 void coppa()
 {
+	for(int i=0;i<4;i++)
+	{
+	
 	system("color 0E");
 	cout <<"                ************\n";
 	cout <<"            ********************\n";
@@ -47,8 +50,10 @@ void coppa()
 	cout <<"                    ****\n";
 	cout <<"                ************\n";
 	cout <<"            ********************";
-	sleep(2);
+	sleep(0.3);
 	system("color 07");
+	system("cls");
+  }
 }
 
 void menupiloti(Pilota temp[])
@@ -479,6 +484,7 @@ int main()
 	Scuderia squadre[10];
 	Pilota pilota[20];
 	Gara *gare= (Gara*) malloc(sizeof(Gara));
+
 	//input scuderia
 	//inputscuderia(squadre);
 	system("cls");
