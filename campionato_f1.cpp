@@ -439,7 +439,7 @@ int controlloX(int x)
 
 void menuinterattivo(Pilota v[], Scuderia s[])
 {
-	int x;
+	int x,j;
 	Pilota* classificapil[SIZEpiloti];
 	classificapiloti(v, classificapil);
 	Scuderia* classificascu[SIZEscuderie];
@@ -458,17 +458,36 @@ void menuinterattivo(Pilota v[], Scuderia s[])
 			break;
 		case 1:
 			system("cls");
-		cout <<"Il pilota vincitore della stagione e' "<< classificapil[0]->nome <<" "<<classificapil[0]->cognome <<" con "<<classificapil[0]->punti <<"punti.\n";
+		cout <<"Il pilota vincitore della stagione e' "<< classificapil[0]->nome <<" "<<classificapil[0]->cognome <<" con "<<classificapil[0]->punti <<" punti.\n";
 		coppa();
 			break;
-		case 2:		break;
-		case 3:     break;
-		case 4:     break;
-						
+		case 2:
+			j=1;
+			system("cls");
+		for(int i=0;i<SIZEpiloti;i++)
+		{
+			cout <<"-  CLASSIFICA PILOTI -\n";
+			cout <<j <<"-"<< classificapil[i]->nome <<" "<<classificapil[i]->cognome <<" con "<<classificapil[0]->punti <<" punti.\n";
+			j++;
+		}
+			break;
+		case 3:
+		system("cls");
+		cout <<"La scuderia vincitrice della stagione e' "<< classificascu[0]->nome <<" con "<<classificascu[0]->puntiTOT <<" punti.\n";
+		coppa();
+			break;
+		case 4:
+		j=1;
+		system("cls");
+		for(int i=0;i<SIZEscuderie;i++)
+		{
+			cout <<"-  CLASSIFICA SCUDERIE -\n";
+			cout <<j <<"-"<< classificascu[i]->nome <<" con "<<classificascu[0]->puntiTOT <<" punti.\n";
+			j++;
+		}
+			break;				
 	}
-	
-	
-}while(x!=0);
+	}while(x!=0);
 
 }
 /////////////////////////////////////////////////main
