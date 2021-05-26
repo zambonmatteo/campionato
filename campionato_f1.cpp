@@ -352,7 +352,7 @@ void inputgare(Gara gare[], Pilota a[])
 
 /////funzioni del menu output
 
-void bubbleSort(Pilota* A[])
+void bubbleSortp(Pilota* A[])
 {
 	bool scambiato= true;
 	
@@ -364,6 +364,26 @@ void bubbleSort(Pilota* A[])
 			if(A[i]->punti < A[i-1]->punti)
 			{				
 				Pilota* t = A[i];
+				A[i] = A[i-1];
+				A[i-1] = t;
+				scambiato = true;
+			}
+		}
+	}
+}
+
+void bubbleSorts(Scuderia* A[])
+{
+	bool scambiato= true;
+	
+	for(int j = 0; j < SIZEpiloti-1 && scambiato; j++)
+	{
+		scambiato = false;
+		for(int i = SIZEpiloti-1; i>j; i--)
+		{
+			if(A[i]->puntiTOT < A[i-1]->puntiTOT)
+			{				
+				Scuderia* t = A[i];
 				A[i] = A[i-1];
 				A[i-1] = t;
 				scambiato = true;
@@ -392,7 +412,19 @@ void classificapiloti(Pilota v[], Pilota *PuntArray[])
    		PuntArray[i] = &v[i];
    }
 	
-	bubbleSort(PuntArray);
+	bubbleSortp(PuntArray);
+}
+
+void classificascuderie(Scuderia v[], Scuderia *PuntArray[])
+{
+   Pilota *temp;
+   
+   for(int i=0;i<SIZEpiloti;i++) 
+   {
+   		PuntArray[i] = &v[i];
+   }
+	
+	bubbleSorts(PuntArray);
 }
 
 int controlloX(int x)
@@ -410,8 +442,8 @@ void menuinterattivo(Pilota v[], Scuderia s[])
 	int x;
 	Pilota* classificapil[SIZEpiloti];
 	classificapiloti(v, classificapil);
-	Pilota* classificascu[SIZEscuderie];
-	classifiscuderie(s, classificascu);
+	Scuderia* classificascu[SIZEscuderie];
+	classificascuderie(s, classificascu);
 	
 	do{
 	
