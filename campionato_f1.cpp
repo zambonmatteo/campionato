@@ -35,9 +35,7 @@ typedef struct{
 ////////////funzioni generali
 void coppa()
 {
-	for(int i=0;i<4;i++)
-	{
-	
+
 	system("color 0E");
 	cout <<"                ************\n";
 	cout <<"            ********************\n";
@@ -50,10 +48,9 @@ void coppa()
 	cout <<"                    ****\n";
 	cout <<"                ************\n";
 	cout <<"            ********************";
-	sleep(0.3);
+	sleep(2);
 	system("color 07");
-	system("cls");
-  }
+
 }
 
 void menupiloti(Pilota temp[])
@@ -399,8 +396,8 @@ void bubbleSorts(Scuderia* A[])
 
 void menu()
 {
-cout<<" \n ======================MENU====================";
-cout<<"\n\n 0. inserisci 0 per finire il programma. ";
+cout<<"\n ======================MENU====================";
+cout<<"\n\n  0. inserisci 0 per finire il programma. ";
 cout<<"\n  1. vincitore dei piloti ";	
 cout<<"\n  2. classifica dei piloti ";	
 cout<<"\n  3. vincitori dei costruttori ";
@@ -469,9 +466,10 @@ void menuinterattivo(Pilota v[], Scuderia s[])
 		case 2:
 			j=1;
 			system("cls");
+				cout <<"-  CLASSIFICA PILOTI -\n";
 		for(int i=0;i<SIZEpiloti;i++)
 		{
-			cout <<"-  CLASSIFICA PILOTI -\n";
+		
 			cout <<j <<"-"<< classificapil[i]->nome <<" "<<classificapil[i]->cognome <<" con "<<classificapil[0]->punti <<" punti.\n";
 			j++;
 		}
@@ -484,9 +482,10 @@ void menuinterattivo(Pilota v[], Scuderia s[])
 		case 4:
 		j=1;
 		system("cls");
+			cout <<"-  CLASSIFICA SCUDERIE -\n";
 		for(int i=0;i<SIZEscuderie;i++)
 		{
-			cout <<"-  CLASSIFICA SCUDERIE -\n";
+		
 			cout <<j <<"-"<< classificascu[i]->nome <<" con "<<classificascu[0]->puntiTOT <<" punti.\n";
 			j++;
 		}
@@ -505,15 +504,15 @@ int main()
 	Gara *gare= (Gara*) malloc(sizeof(Gara));
 
 	//input scuderia
-	//inputscuderia(squadre);
+inputscuderia(squadre);
 	system("cls");
 	//input pilota
-    //inputpilota(pilota);
+   inputpilota(pilota);
 	system("cls");
 	//destinare il pilota alla scuderia
-	//inputscuderia(pilota, squadre);
+	inputscuderia(pilota, squadre);
 	//array dinamico delle gare, assegnazione punti casuali
-	//inputgare(gare, pilota);
+	inputgare(gare, pilota);
 	//una volta finite le gare si chiede cosa si vuole vedere
 	menuinterattivo(pilota, squadre);
 }
