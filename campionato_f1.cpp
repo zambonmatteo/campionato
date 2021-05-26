@@ -31,6 +31,7 @@ typedef struct{
 	Pilota* vincitore;
 	Pilota* secondo;
 	Pilota* terzo;
+	int giri;
 }Gara;
 ////////////funzioni generali
 void coppa()
@@ -241,9 +242,10 @@ void inputscuderia(Pilota v[], Scuderia k[])
 	int x;
 	
 	cout<<"----- ASSEGNAZIONE SCUDERIA ------ \n";
+	menuscuderie(k);
 	for(int j=0;j<20;j++)
 	{
-		menuscuderie(k);
+		
 		cout<<" \n Nome pilota = "<<v[j].nome<<" "<<v[j].cognome;
 		cout<<" \n in che scuderia corre? :  ";
 	    cin>>x;
@@ -261,6 +263,7 @@ void inputscuderia(Pilota v[], Scuderia k[])
 			cout<<"Scuderia con gia' due piloti;\n";
 			j--;
 		}
+			menuscuderie(k);
 	}
 }
 ///////input gare
@@ -345,6 +348,13 @@ void inputgare(Gara gare[], Pilota a[])
 		insvincitori(a, gare[i]);
 		i++;	
 		j++;
+		cout<<"\n quanti giri vuoi fare :";
+		cin>>gare[i].giri; 
+		while(gare[i].giri<=0)
+		{
+			cout<<" \n Errore ! reinserisci i numeri di giri :";
+			cin>>gare[i].giri;
+		}
 		cout<<"Vuoi inserire un'altra gara? \n0 o piu' per inserirla': ";
 		cin>>x;
 	}while(x>=0);
