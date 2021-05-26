@@ -35,9 +35,6 @@ typedef struct{
 ////////////funzioni generali
 void coppa()
 {
-	for(int i=0;i<4;i++)
-	{
-	
 	system("color 0E");
 	cout <<"                ************\n";
 	cout <<"            ********************\n";
@@ -50,10 +47,8 @@ void coppa()
 	cout <<"                    ****\n";
 	cout <<"                ************\n";
 	cout <<"            ********************";
-	sleep(0.3);
+	sleep(2);
 	system("color 07");
-	system("cls");
-  }
 }
 
 void menupiloti(Pilota temp[])
@@ -330,12 +325,10 @@ void insvincitori(Pilota arrayp[], Gara &race)
 	arrayp[x].punti +=15;
 	arrayp[x].squadra->puntiTOT +=15;
 	race.vincitore = &arrayp[x];
-	arrayp[x].punti +=10;
-	arrayp[x].squadra->puntiTOT +=10;
-	race.vincitore = &arrayp[y];
-	arrayp[x].punti +=5;
-	arrayp[x].squadra->puntiTOT +=5;
-	race.vincitore = &arrayp[z];
+	arrayp[y].punti +=10;
+	arrayp[y].squadra->puntiTOT +=10;
+	arrayp[z].punti +=5;
+	arrayp[z].squadra->puntiTOT +=5;
 }
 
 void inputgare(Gara gare[], Pilota a[])
@@ -400,7 +393,7 @@ void bubbleSorts(Scuderia* A[])
 void menu()
 {
 cout<<" \n ======================MENU====================";
-cout<<"\n\n 0. inserisci 0 per finire il programma. ";
+cout<<"\n\n  0. inserisci 0 per finire il programma. ";
 cout<<"\n  1. vincitore dei piloti ";	
 cout<<"\n  2. classifica dei piloti ";	
 cout<<"\n  3. vincitori dei costruttori ";
@@ -505,15 +498,17 @@ int main()
 	Gara *gare= (Gara*) malloc(sizeof(Gara));
 
 	//input scuderia
-	//inputscuderia(squadre);
+	inputscuderia(squadre);
 	system("cls");
 	//input pilota
-    //inputpilota(pilota);
+    inputpilota(pilota);
 	system("cls");
 	//destinare il pilota alla scuderia
-	//inputscuderia(pilota, squadre);
+	inputscuderia(pilota, squadre);
+	system("cls");
 	//array dinamico delle gare, assegnazione punti casuali
-	//inputgare(gare, pilota);
+	inputgare(gare, pilota);
+	system("cls");
 	//una volta finite le gare si chiede cosa si vuole vedere
 	menuinterattivo(pilota, squadre);
 }
