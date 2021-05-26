@@ -328,34 +328,28 @@ void inputgare(Gara gare[], Pilota a[])
 		cin>>x;
 	}while(x>=0);
 }
-/*void bubbleSort(int A[], int nA)
-{
-	bool scambiato= true;
-//	int nc = 1;
-	for(int j = 0; j < nA-1 && scambiato; j++)
-	{
-		scambiato = false;		//NON HO ANCORA SCAMBIATO NIENTE
-		for(int i = nA-1; i>j; i--)
-		{
-//			printf("\n%d - ",nc);
-//			stampa(A,nA);
-			if(A[i] < A[i-1])
-			{				
-				int t = A[i];
-				A[i] = A[i-1];
-				A[i-1] = t;
-//				printf(" * ");
-				scambiato = true; //HO SCAMBIATO QUALCOSA
-			}
-//			nc++;
-		}
-		//se scambiato == false la passata è stata l'ultima che aveva senso fare
-//		printf("\n****** FINE PASSATA %d *******", j+1);
-	}
-}
-*/
 
 /////funzioni del menu output
+
+void bubbleSort(Pilota* A[])
+{
+	bool scambiato= true;
+	
+	for(int j = 0; j < SIZEpiloti-1 && scambiato; j++)
+	{
+		scambiato = false;
+		for(int i = SIZEpiloti-1; i>j; i--)
+		{
+			if(A[i]->punti < A[i-1]->punti)
+			{				
+				Pilota* t = A[i];
+				A[i] = A[i-1];
+				A[i-1] = t;
+				scambiato = true;
+			}
+		}
+	}
+}
 
 void menu()
 {
@@ -367,23 +361,19 @@ cout<<"\n  3. vincitori dei costruttori ";
 cout<<"\n  4. classifica dei costruttori ";
 
 }
- /*void classificapiloti(Pilota v[])
- {
-   Pilota PuntArray[SIZEpiloti];
+
+void classificapiloti(Pilota v[], Pilota *PuntArray[])
+{
+   Pilota *temp;
    
    for(int i=0;i<SIZEpiloti;i++) 
    {
-   	
-   	for(int j=SIZEpiloti-1;j>i;j--)
-   	{
-   		
-   		if(v[j].punti<v[j-1].punti)
-   		{
-   			
-		   }
-	   }
+   		PuntArray[i] = &v[i];
    }
- }*/
+	
+	bubbleSort(PuntArray);
+}
+
 int controlloX(int x)
 {
 	while(x<0||x>4)
@@ -397,6 +387,8 @@ int controlloX(int x)
 void menuinterattivo(Pilota v[])
 {
 	int x;
+	Pilota* classificapil[SIZEpiloti];
+	classificapiloti(v, classificapil);
 	do{
 	
 	menu();
@@ -405,9 +397,14 @@ void menuinterattivo(Pilota v[])
 	x=controlloX(x);
 	switch(x)
 	{
-		case 0:     break;
-		case 1:     break;
-		case 2:  classificapiloti(v);   break;
+		case 0: 
+		cout <<"- FINE PROGRAMMA -";
+			break;
+		case 1:
+			system("cls");
+		cout <<"Il pilota vincitore della stagione e' "<< classificapil[0]->nome <<" "<<classificapil[0]->cognome <<" con "<<classificapil[0]->punti <<"punti." ;
+			break;
+		case 2:		break;
 		case 3:     break;
 		case 4:     break;
 						
@@ -434,14 +431,7 @@ int main()
 	//destinare il pilota alla scuderia
 	//inputscuderia(pilota, squadre);
 	//array dinamico delle gare, assegnazione punti casuali
-	inputgare(gare, pilota);
+	//inputgare(gare, pilota);
 	//una volta finite le gare si chiede cosa si vuole vedere
-	// MENU 0. finire programma 1.vedere quale pilota ha vinto 2. classifica intera piloti 
-	//3. primo classificato tra i costruttori. 4. classifica totale costruttori
-	
-	
-	
-	
-	
-	
+
 }
