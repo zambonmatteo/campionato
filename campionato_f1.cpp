@@ -223,6 +223,7 @@ void inputpilota(Pilota v[])
 				}
 			 }
 		}
+		v[i].punti=0;
 		contatore++;
 	}	
 }	
@@ -294,25 +295,25 @@ void inseriscinomegare(char a[],Gara gare[],int pos)
 	}
 }
 
-void ridimensioneArrayGare(Gara gare[],int &cap,int &nArr)
+void ridimensioneArrayGare(Gara* &vecchio, int &cap,int &nArr)
 {
 	if(nArr==cap)
 	{
-		Gara *temp=(Gara*) malloc(cap*2*sizeof(Gara));
+		Gara *nuovo=(Gara*) malloc(cap*2*sizeof(Gara));
 		for(int j=0;j<nArr;j++)
 		{
-			temp[j]=gare[j];	
+			nuovo[j]=vecchio[j];	
 		}
 			cap=cap*2;
-			free(gare);
-			gare=temp;
-			free(temp);
+			free(vecchio);
+			vecchio=nuovo;
 	}
 	nArr++;		
 }
 
 void insvincitori(Pilota arrayp[], Gara &race)
 {
+	int j=1;
 	int x=sorteggiaNumero(0,19);
 	int y=sorteggiaNumero(0,19);
 	int z=sorteggiaNumero(0,19);
@@ -322,7 +323,7 @@ void insvincitori(Pilota arrayp[], Gara &race)
 	}
 	while(z==x||z==y)
 	{
-		y=sorteggiaNumero(0,19);	
+		z=sorteggiaNumero(0,19);	
 	}
 	arrayp[x].punti +=15;
 	arrayp[x].squadra->puntiTOT +=15;
@@ -342,6 +343,11 @@ void inputgare(Gara gare[], Pilota a[])
 		cout <<"Gara numero "<<j<<"\n";
 		ridimensioneArrayGare(gare,cap,nArr);
 		inseriscinomegare(gare[i].nome,gare,i);
+	/*	for(int h=0;h<SIZEpiloti;h++)
+		{
+		
+			cout <<"-"<< a[h].nome <<" "<<a[h].cognome <<" con "<<a[h].punti <<" punti.\n";
+		}*/
 		insvincitori(a, gare[i]);
 		i++;	
 		j++;
@@ -376,10 +382,10 @@ void bubbleSorts(Scuderia* A[])
 {
 	bool scambiato= true;
 	
-	for(int j = 0; j < SIZEpiloti-1 && scambiato; j++)
+	for(int j = 0; j < SIZEscuderie-1 && scambiato; j++)
 	{
 		scambiato = false;
-		for(int i = SIZEpiloti-1; i>j; i--)
+		for(int i = SIZEscuderie-1; i>j; i--)
 		{
 			if(A[i]->puntiTOT < A[i-1]->puntiTOT)
 			{				
@@ -468,7 +474,7 @@ void menuinterattivo(Pilota v[], Scuderia s[])
 		for(int i=0;i<SIZEpiloti;i++)
 		{
 		
-			cout <<j <<"-"<< classificapil[i]->nome <<" "<<classificapil[i]->cognome <<" con "<<classificapil[0]->punti <<" punti.\n";
+			cout <<j <<"-"<< classificapil[i]->nome <<" "<<classificapil[i]->cognome <<" con "<<classificapil[i]->punti <<" punti.\n";
 			j++;
 		}
 			break;
@@ -484,7 +490,7 @@ void menuinterattivo(Pilota v[], Scuderia s[])
 		for(int i=0;i<SIZEscuderie;i++)
 		{
 		
-			cout <<j <<"-"<< classificascu[i]->nome <<" con "<<classificascu[0]->puntiTOT <<" punti.\n";
+			cout <<j <<"-"<< classificascu[i]->nome <<" con "<<classificascu[i]->puntiTOT <<" punti.\n";
 			j++;
 		}
 			break;				
@@ -512,6 +518,7 @@ int main()
 	system("cls");
 	//array dinamico delle gare, assegnazione punti casuali
 	inputgare(gare, pilota);
+	////////////////////////////////// TODO stampa tutti i piloti
 	system("cls");
 	//una volta finite le gare si chiede cosa si vuole vedere
 	menuinterattivo(pilota, squadre);
