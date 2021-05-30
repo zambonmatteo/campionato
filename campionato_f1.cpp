@@ -34,6 +34,7 @@ typedef struct{
 	int giri;
 }Gara;
 ////////////funzioni generali
+
 void coppa()
 {
 
