@@ -381,7 +381,7 @@ void bubbleSortp(Pilota* A[])
 		scambiato = false;
 		for(int i = SIZEpiloti-1; i>j; i--)
 		{
-			if(A[i]->punti < A[i-1]->punti)
+			if(A[i]->punti > A[i-1]->punti)
 			{				
 				Pilota* t = A[i];
 				A[i] = A[i-1];
@@ -401,7 +401,7 @@ void bubbleSorts(Scuderia* A[])
 		scambiato = false;
 		for(int i = SIZEscuderie-1; i>j; i--)
 		{
-			if(A[i]->puntiTOT < A[i-1]->puntiTOT)
+			if(A[i]->puntiTOT > A[i-1]->puntiTOT)
 			{				
 				Scuderia* t = A[i];
 				A[i] = A[i-1];
