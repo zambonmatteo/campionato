@@ -390,6 +390,11 @@ void bubbleSortp(Pilota* A[])
 			}
 		}
 	}
+	for(int h=0;h<SIZEpiloti;h++)
+		{
+		
+			cout <<"-"<< A[h]->nome <<" "<<A[h]->cognome <<" con "<<A[h]->punti <<" punti.\n";
+		}
 }
 
 void bubbleSorts(Scuderia* A[])
