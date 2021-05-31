@@ -34,7 +34,22 @@ typedef struct{
 	int giri;
 }Gara;
 ////////////funzioni generali
-
+void funzione_riempimento(Pilota V[],Scuderia S[])
+{
+	for(int i =0;i<SIZEpiloti;i++)
+	{char j='a';
+		V[i].nome=j;
+		V[i].cognome=j;
+		V[i].punti=0;
+		j++;
+	}
+	for(int i=0;i<SIZEscuderie;i++)
+	{char j='0';
+		S[i].nome=j;
+	
+		j++;
+	}
+}
 void coppa()
 {
 
@@ -390,6 +405,8 @@ void bubbleSortp(Pilota* A[])
 			}
 		}
 	}
+	
+	
 }
 
 void bubbleSorts(Scuderia* A[])
@@ -433,18 +450,21 @@ void classificapiloti(Pilota v[], Pilota *PuntArray[])
    }
 	
 	bubbleSortp(PuntArray);
+
+	
 	for(int h=0;h<SIZEpiloti;h++)
 	{
 		
 		cout <<"-"<< PuntArray[h]->nome <<" "<<PuntArray[h]->cognome <<" con "<<PuntArray[h]->punti <<" punti.\n";
 	}
+		}
 }
 
 void classificascuderie(Scuderia v[], Scuderia *PuntArray[])
 {
    Pilota *temp;
    
-   for(int i=0;i<SIZEpiloti;i++) 
+   for(int i=0;i<SIZEscuderie;i++) 
    {
    		PuntArray[i] = &v[i];
    }
@@ -467,6 +487,11 @@ void menuinterattivo(Pilota v[], Scuderia s[])
 	int x,j;
 	Pilota* classificapil[SIZEpiloti];
 	classificapiloti(v, classificapil);
+	for(int h=0;h<SIZEpiloti;h++)
+		{
+		
+			cout <<"-"<< classificapil[h]->nome <<" "<<classificapil[h]->cognome <<" con "<<classificapil[h]->punti <<" punti.\n";
+		}
 	Scuderia* classificascu[SIZEscuderie];
 	classificascuderie(s, classificascu);
 	for(int h=0;h<SIZEpiloti;h++)
@@ -475,6 +500,11 @@ void menuinterattivo(Pilota v[], Scuderia s[])
 		cout <<"-"<< classificapil[h]->nome <<" "<<classificapil[h]->cognome <<" con "<<classificapil[h]->punti <<" punti.\n";
 	}
 	
+	for(int h=0;h<SIZEpiloti;h++)
+		{
+		
+			cout <<"-"<< classificapil[h]->nome <<" "<<classificapil[h]->cognome <<" con "<<classificapil[h]->punti <<" punti.\n";
+		}
 	do{
 	
 	menu();
