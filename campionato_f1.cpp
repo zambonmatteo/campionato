@@ -34,28 +34,6 @@ typedef struct{
 	int giri;
 }Gara;
 ////////////funzioni generali
-/*void funzione_riempimento(Pilota V[],Scuderia S[])
-{
-char j='a';
-	for(int i =0;i<SIZEpiloti;i++)
-	{   	
-		V[i].nome[0]=j;
-		V[i].nome[1]='\0';
-		V[i].cognome[0]=j;
-		V[i].cognome[1]='\0';
-		V[i].punti=0;
-		j=j+1;
-	}
-	char h='0';
-	for(int i=0;i<SIZEscuderie;i++)
-	{   
-	     	S[i].nome[0]=h;
-			 	S[i].nome[1]='\0';	
-	
-       h++;
-	}
-}
-*/
 void coppa()
 {
 
@@ -101,6 +79,7 @@ int sorteggiaNumero(int min, int max)
 int lunghezza(char a[])
 {
 	int i=0;
+	
 	do{
 		i++;
 	}while(a[i]!='\0');
@@ -155,6 +134,7 @@ void inseriscinomescuderia(char a[],Scuderia tutti[],int pos)
 int inseriscianno()
 {
 	int j;
+	
 	cout <<"Inserisci l'anno di formazione della scuderia: ";
 	cin >>j;
 	
@@ -169,12 +149,13 @@ int inseriscianno()
 void inputscuderia(Scuderia v[])
 {
 	int i=0;
+	
 	cout <<"- Inserimento dati scuderie -\n";
 	for(int j=1;i<10;i++,j++)
 	{
 		cout <<"Scuderia numero "<<j<<"\n";
 		inseriscinomescuderia(v[i].nome,v,i);
-		//v[i].annofondazione = inseriscianno();	
+		v[i].annofondazione = inseriscianno();	
 		v[i].puntiTOT=0;
 		v[i].numeropiloti=0;
 	}
@@ -184,6 +165,7 @@ void inputpilota(Pilota v[])
 {
 	char temp[1000];
 	int contatore=1,scelta;
+	
 	for(int i=0;i<20;i++)
 	{
 		cout<<" \n Insersci il pilota "<<contatore<<" :\n NOME = ";
@@ -216,7 +198,7 @@ void inputpilota(Pilota v[])
 				}
 			 }
 		}
-		cout<<"\n COGNOME =";
+		cout<<"\n COGNOME = ";
 		cin>>temp;
 		while(lunghezza(temp)>sizenome)
 		{
@@ -329,9 +311,9 @@ void ridimensioneArrayGare(Gara* &vecchio, int &cap,int &nArr)
 		{
 			nuovo[j]=vecchio[j];	
 		}
-			cap=cap*2;
-			free(vecchio);
-			vecchio=nuovo;
+		cap=cap*2;
+		free(vecchio);
+		vecchio=nuovo;
 	}
 	nArr++;		
 }
@@ -355,13 +337,16 @@ void insvincitori(Pilota arrayp[], Gara &race)
 	race.vincitore = &arrayp[x];
 	arrayp[y].punti +=10;
 	arrayp[y].squadra->puntiTOT +=10;
+	race.secondo = &arrayp[y];
 	arrayp[z].punti +=5;
 	arrayp[z].squadra->puntiTOT +=5;
+	race.terzo = &arrayp[z];
 }
 
 int insgiri()
 {
 	int j;
+	
 	cout <<"Inserisci il numero di giri da fare: ";
 	cin >>j;
 	
@@ -373,17 +358,25 @@ int insgiri()
 	return j;
 }
 
+void outvincitori(Gara s)
+{
+	cout <<"I tre piloti nella zona punti sono:\n1 - "<< s.vincitore->nome <<" "<< s.vincitore->cognome<<"\n2 - "<< s.secondo->nome <<" "<< s.secondo->cognome<<"\n3 - "<< s.terzo->nome <<" "<< s.terzo->cognome<<"\n";
+	sleep(4);
+}
+
 void inputgare(Gara gare[], Pilota a[])
 {
-	int i=0,x,cap=1,nArr=0,j=0;
+	int i=0,x,cap=1,nArr=0,j=1;
+	
  	do{
  		system("cls");
  		cout <<"----- Inserimento Gare ----\n";
 		cout <<"Gara numero "<<j<<"\n";
 		ridimensioneArrayGare(gare,cap,nArr);
 		inseriscinomegare(gare[i].nome,gare,i);
-		//gare[i].giri = insgiri();
+		gare[i].giri = insgiri();
 		insvincitori(a, gare[i]);
+		outvincitori(gare[i]);
 		i++;	
 		j++;
 		cout<<"Vuoi inserire un'altra gara? \n0 o piu' per inserirla': ";
@@ -439,12 +432,12 @@ void bubbleSorts(Scuderia* A[])
 
 void menu()
 {
-cout<<"\n ======================MENU====================";
-cout<<"\n\n  0. inserisci 0 per finire il programma. ";
-cout<<"\n  1. vincitore dei piloti ";	
-cout<<"\n  2. classifica dei piloti ";	
-cout<<"\n  3. vincitori dei costruttori ";
-cout<<"\n  4. classifica dei costruttori ";
+	cout<<"\n ======================MENU====================";
+	cout<<"\n\n  0. Inserisci 0 per finire il programma. ";
+	cout<<"\n  1. Vincitore dei piloti ";	
+	cout<<"\n  2. Classifica dei piloti ";	
+	cout<<"\n  3. Vincitori dei costruttori ";
+	cout<<"\n  4. Classifica dei costruttori ";
 
 }
 
@@ -459,11 +452,6 @@ void classificapiloti(Pilota v[], Pilota *PuntArray[])
 	
 	bubbleSortp(PuntArray);
 
-	for(int h=0;h<SIZEpiloti;h++)
-		{
-		
-			cout <<"-"<< PuntArray[h]->nome <<" "<<PuntArray[h]->cognome <<" con "<<PuntArray[h]->punti <<" punti.\n";
-		}
 }
 
 void classificascuderie(Scuderia v[], Scuderia *PuntArray[])
@@ -491,21 +479,11 @@ int controlloX(int x)
 void menuinterattivo(Pilota v[], Scuderia s[])
 {
 	int x,j;
+	
 	Pilota* classificapil[SIZEpiloti];
 	classificapiloti(v, classificapil);
-	for(int h=0;h<SIZEpiloti;h++)
-		{
-		
-			cout <<"-"<< classificapil[h]->nome <<" "<<classificapil[h]->cognome <<" con "<<classificapil[h]->punti <<" punti.\n";
-		}
 	Scuderia* classificascu[SIZEscuderie];
 	classificascuderie(s, classificascu);
-	
-	for(int h=0;h<SIZEpiloti;h++)
-		{
-		
-			cout <<"-"<< classificapil[h]->nome <<" "<<classificapil[h]->cognome <<" con "<<classificapil[h]->punti <<" punti.\n";
-		}
 	do{
 	
 	menu();
@@ -561,7 +539,8 @@ int main()
 	Scuderia squadre[10];
 	Pilota pilota[20];
 	Gara *gare= (Gara*) malloc(sizeof(Gara));
-//funzione_riempimento(pilota,squadre);
+	
+	preparaGeneratore();
 	//input scuderia
 	inputscuderia(squadre);
 	system("cls");
