@@ -530,7 +530,8 @@ int main()
 	Scuderia squadre[10];
 	Pilota pilota[20];
 	Gara *gare= (Gara*) malloc(sizeof(Gara));
-
+	
+	preparaGeneratore();
 	//input scuderia
 	inputscuderia(squadre);
 	system("cls");
