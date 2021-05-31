@@ -153,7 +153,7 @@ void inputscuderia(Scuderia v[])
 	{
 		cout <<"Scuderia numero "<<j<<"\n";
 		inseriscinomescuderia(v[i].nome,v,i);
-		v[i].annofondazione = inseriscianno();	
+		//v[i].annofondazione = inseriscianno();	
 		v[i].puntiTOT=0;
 		v[i].numeropiloti=0;
 	}
@@ -338,6 +338,20 @@ void insvincitori(Pilota arrayp[], Gara &race)
 	arrayp[z].squadra->puntiTOT +=5;
 }
 
+int insgiri()
+{
+	int j;
+	cout <<"Inserisci il numero di giri da fare: ";
+	cin >>j;
+	
+	while(j<=0)
+	{
+		cout <<"ERRORE! Reinserisci il numero di giri da fare: ";
+		cin >>j;
+	}
+	return j;
+}
+
 void inputgare(Gara gare[], Pilota a[])
 {
 	int i=0,x,cap=1,nArr=0,j=0;
@@ -347,21 +361,10 @@ void inputgare(Gara gare[], Pilota a[])
 		cout <<"Gara numero "<<j<<"\n";
 		ridimensioneArrayGare(gare,cap,nArr);
 		inseriscinomegare(gare[i].nome,gare,i);
-	/*	for(int h=0;h<SIZEpiloti;h++)
-		{
-		
-			cout <<"-"<< a[h].nome <<" "<<a[h].cognome <<" con "<<a[h].punti <<" punti.\n";
-		}*/
+		//gare[i].giri = insgiri();
 		insvincitori(a, gare[i]);
 		i++;	
 		j++;
-		cout<<"\n quanti giri vuoi fare :";
-		cin>>gare[i].giri; 
-		while(gare[i].giri<=0)
-		{
-			cout<<" \n Errore ! reinserisci i numeri di giri :";
-			cin>>gare[i].giri;
-		}
 		cout<<"Vuoi inserire un'altra gara? \n0 o piu' per inserirla': ";
 		cin>>x;
 	}while(x>=0);
@@ -378,7 +381,7 @@ void bubbleSortp(Pilota* A[])
 		scambiato = false;
 		for(int i = SIZEpiloti-1; i>j; i--)
 		{
-			if(A[i]->punti < A[i-1]->punti)
+			if(A[i]->punti > A[i-1]->punti)
 			{				
 				Pilota* t = A[i];
 				A[i] = A[i-1];
@@ -398,7 +401,7 @@ void bubbleSorts(Scuderia* A[])
 		scambiato = false;
 		for(int i = SIZEscuderie-1; i>j; i--)
 		{
-			if(A[i]->puntiTOT < A[i-1]->puntiTOT)
+			if(A[i]->puntiTOT > A[i-1]->puntiTOT)
 			{				
 				Scuderia* t = A[i];
 				A[i] = A[i-1];
