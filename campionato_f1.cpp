@@ -451,10 +451,12 @@ void classificapiloti(Pilota v[], Pilota *PuntArray[])
 	
 	bubbleSortp(PuntArray);
 
+	
 	for(int h=0;h<SIZEpiloti;h++)
-		{
+	{
 		
-			cout <<"-"<< PuntArray[h]->nome <<" "<<PuntArray[h]->cognome <<" con "<<PuntArray[h]->punti <<" punti.\n";
+		cout <<"-"<< PuntArray[h]->nome <<" "<<PuntArray[h]->cognome <<" con "<<PuntArray[h]->punti <<" punti.\n";
+	}
 		}
 }
 
@@ -492,6 +494,11 @@ void menuinterattivo(Pilota v[], Scuderia s[])
 		}
 	Scuderia* classificascu[SIZEscuderie];
 	classificascuderie(s, classificascu);
+	for(int h=0;h<SIZEpiloti;h++)
+	{
+		
+		cout <<"-"<< classificapil[h]->nome <<" "<<classificapil[h]->cognome <<" con "<<classificapil[h]->punti <<" punti.\n";
+	}
 	
 	for(int h=0;h<SIZEpiloti;h++)
 		{
