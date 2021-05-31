@@ -426,8 +426,6 @@ void bubbleSorts(Scuderia* A[])
 			}
 		}
 	}
-	
-	
 }
 
 void menu()
